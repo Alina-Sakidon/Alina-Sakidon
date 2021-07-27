@@ -15,20 +15,20 @@ public class AccountCalculator extends Calculator{
 
     @Override
     public Double minusOfValues(String... values) {
-        double resultOfminus=super.minusOfValues(values);
-        return accountRound(resultOfminus);
+        double resultOfMinus =super.minusOfValues(values);
+        return accountRound(resultOfMinus);
     }
 
     @Override
     public Double multiplicationOfValues(String... values) {
-        double resultOfmultiplication= super.multiplicationOfValues(values);
-        return accountRound(resultOfmultiplication);
+        double resultOfMultiplication = super.multiplicationOfValues(values);
+        return accountRound(resultOfMultiplication);
     }
 
     @Override
-    public Double devideOfValues(String... values) {
-        double resultOfDevide=super.devideOfValues(values);
-        return accountRound(resultOfDevide);
+    public Double divideOfValues(String... values) {
+        double resultOfDivide=super.divideOfValues(values);
+        return accountRound(resultOfDivide);
         }
 
 

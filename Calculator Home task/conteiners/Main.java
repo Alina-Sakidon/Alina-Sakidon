@@ -13,8 +13,8 @@ public class Main {
             System.out.println(calc.getName());
             System.out.println("Sum of values " +calc.sumOfValues(inputDate));
             System.out.println("Minus of values "+calc.minusOfValues(inputDate));
-            System.out.println("multiplication of Values"+calc.multiplicationOfValues(inputDate));
-            System.out.println("devide Of Values "+calc.devideOfValues(inputDate));
+            System.out.println("Multiplication of Values "+calc.multiplicationOfValues(inputDate));
+            System.out.println("Divide Of Values "+calc.divideOfValues(inputDate));
         }
     }
 }

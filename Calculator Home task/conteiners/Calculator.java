@@ -62,8 +62,8 @@ public class Calculator {
         return multiplication;
     }
 
-    public Double devideOfValues(String... values) {
-        Double devide = 0d;
+    public Double divideOfValues(String... values) {
+        Double divide = 0d;
         Double[] arrayDoubles = parseStrings(values);
         for (int i = 0; i < values.length; i++) {
             if (arrayDoubles[i] == 0) {
@@ -71,11 +71,11 @@ public class Calculator {
                 break;
             }
             if (i == 0) {
-                devide = arrayDoubles[0];
+                divide = arrayDoubles[0];
                 continue;
             }
-            devide /= arrayDoubles[i];
+            divide /= arrayDoubles[i];
         }
-        return devide;
+        return divide;
     }
 }

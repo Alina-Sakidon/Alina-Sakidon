@@ -24,8 +24,8 @@ public class FinanceCalculator extends Calculator{
     }
 
     @Override
-    public Double devideOfValues(String... values) {
-        double resultOfDevide=super.devideOfValues(values);
+    public Double divideOfValues(String... values) {
+        double resultOfDevide=super.divideOfValues(values);
         return accountRound(resultOfDevide);
     }
 
