@@ -1,0 +1,9 @@
+<suite name="Suite1" verbose="1">
+    <test name="login">
+        <classes>
+            <class name="ua.hillel.tests.ChallengingDom" />
+            <class name="ua.hillel.tests.LoginPage" />
+            <class name="ua.hillel.tests.Geolocation" />
+        </classes>
+    </test>
+</suite>
