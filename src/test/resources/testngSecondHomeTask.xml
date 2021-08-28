@@ -1,0 +1,9 @@
+<suite name="Suite1" verbose="1">
+    <test name="login">
+        <classes>
+            <class name="ua.hillel.tests.DragAndDrop" />
+            <class name="ua.hillel.tests.Dropdown" />
+            <class name="ua.hillel.tests.Hovers" />
+        </classes>
+    </test>
+</suite>
