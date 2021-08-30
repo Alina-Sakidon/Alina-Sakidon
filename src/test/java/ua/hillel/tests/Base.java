@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 public class Base {
     protected WebDriver driver;
     public Actions actions;
-   protected WebDriverWait wait;
+    protected WebDriverWait wait;
 
     @BeforeClass
     public void beforeClass(){
