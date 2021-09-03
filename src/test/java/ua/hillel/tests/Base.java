@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import pageObjects.MainPage;
 
 public class Base {
     protected WebDriver driver;
@@ -24,5 +25,10 @@ public class Base {
     @AfterClass
     public void afterClass(){
         driver.quit();
+    }
+
+    public MainPage openSite(){
+        driver.get("https://the-internet.herokuapp.com");
+        return new MainPage (driver);
     }
 }
