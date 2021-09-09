@@ -9,13 +9,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class GeolocationPage extends BasePage{
     @FindBy(xpath = "//button[text()='Where am I?']")
     private WebElement buttonWhereIAm;
+
     @FindBy(css = "#lat-value")
     private WebElement latitude;
+
     @FindBy(css = "#long-value")
     private WebElement longitude;
 
     public GeolocationPage(WebDriver driver){
-        super(driver);
         PageFactory.initElements(driver,this);
     }
     public String getLatitude(){

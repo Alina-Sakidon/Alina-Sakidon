@@ -8,10 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 public class SecurePage extends BasePage{
     @FindBy(id ="flash")
     private WebElement loginMassage;
+
     @FindBy(css ="a.button")
     private WebElement logoutButton;
+
     public  SecurePage(WebDriver driver){
-       super(driver);
         PageFactory.initElements(driver,this);
     }
     public String getMessageOfLogin(){

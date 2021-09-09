@@ -10,15 +10,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class LoginPage extends BasePage{
     @FindBy(id = "username")
     private WebElement userNameInput;
+
     @FindBy(id="password")
     private WebElement passwordInput;
+
     @FindBy(tagName = "button")
     private WebElement loginButton;
+
     @FindBy (css = "div.flash.error")
     private WebElement invalidLoginMassage;
 
     public LoginPage(WebDriver driver){
-        super(driver);
         PageFactory.initElements(driver,this);
         wait.until(ExpectedConditions.visibilityOf(userNameInput));
     }

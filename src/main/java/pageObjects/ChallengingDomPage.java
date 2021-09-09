@@ -23,7 +23,6 @@ public class ChallengingDomPage extends BasePage{
     private WebElement button3;
 
     public ChallengingDomPage(WebDriver driver){
-        super(driver);
         PageFactory.initElements(driver,this);
     }
     public ChallengingDomPage clickButtons(){
@@ -34,8 +33,7 @@ public class ChallengingDomPage extends BasePage{
     }
 
     public List<WebElement> getColumnSit() {
-        for (WebElement element :
-                columnSit) {
+        for (WebElement element : columnSit) {
             System.out.println(element.getText());
         }
         return columnSit;
