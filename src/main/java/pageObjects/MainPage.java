@@ -18,8 +18,13 @@ public class MainPage extends BasePage{
     @FindBy (linkText = "Hovers")
     private WebElement hoversLink;
 
+    @FindBy(linkText = "File Download")
+    private WebElement downloadLink;
+
+    @FindBy(linkText = "File Upload")
+    private WebElement uploadLink;
+
     public  MainPage(WebDriver driver) {
-        super(driver);
         PageFactory.initElements(driver,this);
     }
 
@@ -38,5 +43,13 @@ public class MainPage extends BasePage{
     public HoversPage goToHovers(){
         hoversLink.click();
         return new HoversPage(driver);
+    }
+    public FileDownloadPage goToFileDownload(){
+        downloadLink.click();
+        return new FileDownloadPage(driver);
+    }
+    public UploadPage goToUploadPage(){
+        uploadLink.click();
+        return new UploadPage(driver);
     }
 }

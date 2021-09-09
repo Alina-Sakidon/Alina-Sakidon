@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HoversPage extends BasePage {
@@ -14,17 +15,17 @@ public class HoversPage extends BasePage {
     List<WebElement> listOfIcons;
 
     public HoversPage(WebDriver driver) {
-        super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public List<WebElement> getUserName() {
-        for (WebElement userIcon :
-                listOfIcons) {
+    public List<String> getUserNames() {
+        ArrayList<String> names= new ArrayList<String>();
+        for (WebElement userIcon : listOfIcons) {
             actions.moveToElement(userIcon).perform();
             String result = userIcon.getText().split("\n")[0];
             System.out.println(result);
+            names.add(result);
         }
-        return listOfIcons;
+        return names;
     }
 }

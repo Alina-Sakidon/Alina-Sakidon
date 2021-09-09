@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pageObjects.MainPage;
+import pageObjects.Singletone.DriverSingleton;
 
 public class Base {
     protected WebDriver driver;
@@ -17,8 +18,7 @@ public class Base {
     @BeforeClass
     public void beforeClass(){
         WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
-        driver.manage().window().maximize();
+        this.driver= DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,10);
         actions = new Actions(driver);
     }
