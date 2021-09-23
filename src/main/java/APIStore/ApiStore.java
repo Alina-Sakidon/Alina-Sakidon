@@ -23,7 +23,7 @@ public class ApiStore {
         }
     }
 
- public static int placeOrder(PetOrder petOrder) throws IOException, ApiException {
+ public static PetOrder placeOrder(PetOrder petOrder) throws IOException, ApiException {
      Gson gson = new Gson();
      String jsonObject = gson.toJson(petOrder);
      System.out.println("To post " + jsonObject);
@@ -41,24 +41,28 @@ public class ApiStore {
      response = call.execute();
      checkStatusCode();
      PetOrder newPetOrder = gson.fromJson(response.body().string(),PetOrder.class);
+     return newPetOrder;
      /*JSONObject jsonObject1 = new JSONObject(response.body().string());
      String idOrder = jsonObject1.getString("id");*/
-     return newPetOrder.getId();
+     //return newPetOrder.getId();
  }
 
- public  static String getOrderById(int orderId) throws IOException, ApiException {
+ public  static PetOrder getOrderById(int orderId) throws IOException, ApiException {
+     Gson gson = new Gson();
      request = new Request.Builder()
              .header("Content-Type","Application/json")
              .get()
              .url(baseUrl+"/store/order/"+orderId )
              .build();
-     client = new OkHttpClient();
+
+      client = new OkHttpClient();
       call = client.newCall(request);
      response = call.execute();
      checkStatusCode();
-     String result = response.body().string();
-     System.out.println("get" +result);
-     return result;
+     PetOrder petOrder = gson.fromJson(response.body().string(),PetOrder.class);
+     String jsonObject = gson.toJson(petOrder);
+     System.out.println("To get " + jsonObject);
+     return petOrder;
 
  }
 
@@ -70,18 +74,24 @@ public class ApiStore {
              .build();
 
      client = new OkHttpClient();
-     var call = client.newCall(request);
+     call = client.newCall(request);
      response = call.execute();
      checkStatusCode();
      String result = response.body().string();
+     System.out.println("get Pet Inventories By Status"+result);
      return result;
  }
- public  static void deleteOrderById(int orderId) throws ApiException {
+ public  static void deleteOrderById(int orderId) throws ApiException, IOException {
      request = new Request.Builder()
              .header("Content-Type","Application/json")
              .delete()
-             .url(baseUrl+"")
+             .url(baseUrl+"/store/order/"+orderId)
              .build();
+     client = new OkHttpClient();
+     call = client.newCall(request);
+     response = call.execute();
      checkStatusCode();
- }
+     String result = response.body().string();
+     System.out.println("Order was deleted "+result);
+     }
 }

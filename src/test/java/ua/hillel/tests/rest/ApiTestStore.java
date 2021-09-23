@@ -17,19 +17,19 @@ public class ApiTestStore {
     }
     @Test
     public void orderPetTests() throws IOException, ApiException {
+        int orderId = 8;
         PetOrder petOrder = new PetOrder();
-        petOrder.setId(8);
+        petOrder.setId(orderId);
         petOrder.setPetId(7);
         petOrder.setQuantity(4);
         petOrder.setShipDate(LocalDateTime.now().toString());
         petOrder.setStatus("placed");
         petOrder.setComplete(true);
 
-        Assert.assertEquals(petOrder.getId(),ApiStore.placeOrder(petOrder));
+        Assert.assertEquals(ApiStore.placeOrder(petOrder).getId(), orderId);
 
-        ApiStore.getOrderById(petOrder.getId());
+        Assert.assertEquals(ApiStore.getOrderById(orderId).getId(), orderId);
 
-        ApiStore.deleteOrderById(petOrder.getId());
+        ApiStore.deleteOrderById(orderId);
     }
-
 }
