@@ -4,7 +4,7 @@
         <packages>
             <package name="ua.hillel.tests.selenidTests"/>
             <package name="ua.hillel.tests.rest"/>
+            <package name="ua.hillel.tests"/>
         </packages>
-
     </test>
 </suite>

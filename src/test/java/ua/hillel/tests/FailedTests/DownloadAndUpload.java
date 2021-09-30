@@ -1,9 +1,10 @@
-package ua.hillel.tests;
+package ua.hillel.tests.FailedTests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.FileDownloadPage;
 import pageObjects.UploadPage;
+import ua.hillel.tests.Base;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DownloadAndUpload extends Base{
+public class DownloadAndUpload extends Base {
     @Test
     public void downloadFile() throws InterruptedException, IOException {
         FileDownloadPage fileDownloadPage = openSite()

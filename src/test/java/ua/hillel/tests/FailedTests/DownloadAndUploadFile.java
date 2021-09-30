@@ -1,8 +1,10 @@
-package ua.hillel.tests.selenidTests;
+package ua.hillel.tests.FailedTests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Selenid.DownloadPageSelenid;
 import pageObjects.Selenid.UploadFilePageSelenid;
+import ua.hillel.tests.selenidTests.BaseSelenideTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +40,7 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
         UploadFilePageSelenid uploadFilePageSelenid=openUrl()
                 .doToUploadPage()
                 .uploadFile(fileToEdit);
-        //Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
+        Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
         System.out.println("file has been uploaded");
 
         path1.toFile().deleteOnExit();
