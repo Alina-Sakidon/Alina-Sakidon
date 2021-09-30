@@ -31,10 +31,11 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
             newText.add(0,line+ "world");
         }
         Files.write(path1,newText);
+        System.out.println("file has been written");
 
         UploadFilePageSelenid uploadFilePageSelenid=openUrl()
                 .doToUploadPage()
-                .uploadFile(path1.toAbsolutePath());
+                .uploadFile(path1);
         Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
         path1.toFile().deleteOnExit();
     }
