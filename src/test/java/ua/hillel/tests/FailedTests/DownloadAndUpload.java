@@ -1,30 +1,33 @@
-package ua.hillel.tests.selenidTests;
+package ua.hillel.tests.FailedTests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.Selenid.DownloadPageSelenid;
-import pageObjects.Selenid.UploadFilePageSelenid;
+import pageObjects.FileDownloadPage;
+import pageObjects.UploadPage;
+import ua.hillel.tests.Base;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class DownloadAndUploadFile extends BaseSelenideTest {
+public class DownloadAndUpload extends Base {
     @Test
-    public void downloadAndUpload() throws IOException, InterruptedException {
-        DownloadPageSelenid downloadPageSelenid = openUrl()
-                .goToDownloadPage()
+    public void downloadFile() throws InterruptedException, IOException {
+        FileDownloadPage fileDownloadPage = openSite()
+                .goToFileDownload()
                 .downloadFile();
-        Path path1 = DownloadPageSelenid.lastDownloadPath;
+
+        Path path1 = Paths.get("target/"+"some-file.txt");
         while (true){
             if (!path1.toFile().exists()){
                 Thread.sleep(1000);
             }else {break;}
         }
         System.out.println("file has been downloaded");
+
         List<String> oldText = Files.readAllLines(path1);
         List<String> newText = new ArrayList<>();
         for (String line : oldText) {
@@ -32,10 +35,10 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
         }
         Files.write(path1,newText);
 
-        UploadFilePageSelenid uploadFilePageSelenid=openUrl()
-                .doToUploadPage()
+        UploadPage uploadPage = openSite()
+                .goToUploadPage()
                 .uploadFile(path1.toAbsolutePath());
-        Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
+        Assert.assertTrue(uploadPage.getSuccessUploadMessage().contains("File Uploaded!"));
         path1.toFile().deleteOnExit();
     }
 }

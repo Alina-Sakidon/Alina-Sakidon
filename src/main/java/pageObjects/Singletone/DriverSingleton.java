@@ -15,15 +15,19 @@ public class DriverSingleton {
 
     public static WebDriver getDriver(){
         if(driver==null){
-            ChromeOptions chromeOptions = new ChromeOptions();
-            Map<String, Object> prefs = new HashMap<String, Object>();
-            prefs.put("download.default_directory", Paths.get("target").toFile().getAbsolutePath());
-            prefs.put("sefebrowsing.enabled","false");
-            prefs.put("profile.default_content_settings.popups",0);
-            chromeOptions.setExperimentalOption("prefs", prefs);
-            driver = new ChromeDriver(chromeOptions);
-            driver.manage().window().maximize();
+            createDriver();
         }
         return driver;
+    }
+
+    public static void createDriver() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("download.default_directory", Paths.get("target").toFile().getAbsolutePath());
+        prefs.put("sefebrowsing.enabled","false");
+        prefs.put("profile.default_content_settings.popups",0);
+        chromeOptions.setExperimentalOption("prefs", prefs);
+        driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
     }
 }

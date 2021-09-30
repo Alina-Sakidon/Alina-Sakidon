@@ -18,6 +18,7 @@ public class Base {
     @BeforeClass
     public void beforeClass(){
         WebDriverManager.chromedriver().setup();
+        DriverSingleton.createDriver();
         this.driver= DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,10);
         actions = new Actions(driver);

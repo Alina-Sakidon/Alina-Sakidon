@@ -1,8 +1,9 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite1" verbose="1">
     <test name="login">
         <packages>
+            <package name="ua.hillel.tests.selenidTests"/>
+            <package name="ua.hillel.tests.rest"/>
             <package name="ua.hillel.tests"/>
         </packages>
     </test>
