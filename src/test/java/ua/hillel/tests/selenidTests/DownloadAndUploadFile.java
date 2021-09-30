@@ -1,10 +1,10 @@
 package ua.hillel.tests.selenidTests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Selenid.DownloadPageSelenid;
 import pageObjects.Selenid.UploadFilePageSelenid;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,8 +19,9 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
                 .goToDownloadPage()
                 .downloadFile();
         Path path1 = DownloadPageSelenid.lastDownloadPath;
+        File fileToEdit = path1.toFile();
         while (true){
-            if (!path1.toFile().exists()){
+            if (!fileToEdit.exists()){
                 Thread.sleep(1000);
             }else {break;}
         }
@@ -30,12 +31,13 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
         for (String line : oldText) {
             newText.add(0,line+ "world");
         }
+
         Files.write(path1,newText);
         System.out.println("file has been written");
 
         UploadFilePageSelenid uploadFilePageSelenid=openUrl()
-                .doToUploadPage();
-                //.uploadFile(path1);
+                .doToUploadPage()
+                .uploadFile(fileToEdit);
         //Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
         System.out.println("file has been uploaded");
 
