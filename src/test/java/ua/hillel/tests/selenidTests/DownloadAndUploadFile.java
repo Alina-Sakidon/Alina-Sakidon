@@ -37,6 +37,8 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
                 .doToUploadPage()
                 .uploadFile(path1);
         Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
+        System.out.println("file has been uploaded");
+
         //path1.toFile().deleteOnExit();
     }
 }
