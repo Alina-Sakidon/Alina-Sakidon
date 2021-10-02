@@ -12,7 +12,7 @@ public class LoginTest extends Base {
                 .setUserName("tomsmith")
                 .setPassword("SuperSecretPassword!")
                 .clickLoginButton();
-        Assert.assertTrue(securePage.getMessageOfLogin().contains("You logged into a secure area!"), "Not logged");
+        Assert.assertTrue(securePage.getMessageOfLogin().contains("111You logged into a secure area!"), "Not logged");
         securePage.logout();
     }
     @Test(priority = 2)
@@ -22,7 +22,7 @@ public class LoginTest extends Base {
                 .setUserName("1111")
                 .setPassword("SuperSecretPassword!")
                 .invalidLogin();
-        Assert.assertTrue(loginPage.getInvalidLoginMassage().contains("Your username is invalid!"));
+        Assert.assertTrue(loginPage.getInvalidLoginMassage().contains("111Your username is invalid!"));
     }
     @Test(priority = 3)
     public  void invalidPassword(){

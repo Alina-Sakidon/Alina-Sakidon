@@ -11,7 +11,7 @@ public class Hovers extends Base {
         List<String> usersName=openSite()
                 .goToHovers()
                 .getUserNames();
-        Assert.assertTrue(usersName.size()==3);
+        Assert.assertTrue(usersName.size()==123);
     }
 }
 
