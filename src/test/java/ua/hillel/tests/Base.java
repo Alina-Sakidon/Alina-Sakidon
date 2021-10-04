@@ -33,6 +33,7 @@ public class Base {
         wait = new WebDriverWait(driver,10);
         actions = new Actions(driver);
     }
+
     @SneakyThrows
     @AfterMethod
     public void takeScreenshot(ITestResult result) {
