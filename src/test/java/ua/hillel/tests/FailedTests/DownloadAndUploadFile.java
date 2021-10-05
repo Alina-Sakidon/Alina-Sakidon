@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DownloadAndUploadFile extends BaseSelenideTest {
     @Test
-    public void downloadAndUpload() throws IOException, InterruptedException {
+    public void downloadAndUpload() throws IOException{
         DownloadPageSelenid downloadPageSelenid = openUrl()
                 .goToDownloadPage()
                 .downloadFile();
@@ -24,7 +24,6 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
         File fileToEdit = path1.toFile();
         while (true){
             if (!fileToEdit.exists()){
-                Thread.sleep(1000);
             }else {break;}
         }
         System.out.println("file has been downloaded");
@@ -35,14 +34,10 @@ public class DownloadAndUploadFile extends BaseSelenideTest {
         }
 
         Files.write(path1,newText);
-        System.out.println("file has been written");
-
         UploadFilePageSelenid uploadFilePageSelenid=openUrl()
                 .doToUploadPage()
                 .uploadFile(fileToEdit);
         Assert.assertTrue(uploadFilePageSelenid.getSuccessUploadMessage().contains("File Uploaded!"));
-        System.out.println("file has been uploaded");
-
         path1.toFile().deleteOnExit();
     }
 }

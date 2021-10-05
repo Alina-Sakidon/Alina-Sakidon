@@ -15,9 +15,7 @@ public class UploadFilePageSelenid {
     private SelenideElement successUploadMessage = $x(".//*[text()='File Uploaded!']");
 
     public UploadFilePageSelenid uploadFile(File file) {
-        System.out.println("File " + file.getPath() + " exist " + file.exists());
         inputToUploadFile.should(Condition.visible).uploadFile(file);
-        System.out.println("File uploaded!");
 
         buttonToUpload.click();
         return new UploadFilePageSelenid();

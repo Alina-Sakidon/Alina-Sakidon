@@ -1,5 +1,6 @@
 package pageObjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,12 +20,14 @@ public class ChallengingDomPage extends BasePage{
     @FindBy(xpath ="//div[@class='large-2 columns']/a[2]")
     private WebElement button2;
 
-    @FindBy(xpath ="//div[@class='large-2 columns']/a[3]")
+    @FindBy(xpath ="//div[@class='large-2 columns']/a[63]")
     private WebElement button3;
 
     public ChallengingDomPage(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
+
+    @Step("click buttons")
     public ChallengingDomPage clickButtons(){
         button1.click();
         button2.click();
